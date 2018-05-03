@@ -1,26 +1,19 @@
 package com.example.nathan.trainstationserver.run;
 
-import com.example.nathan.trainstationserver.server.Server;
+import com.example.nathan.trainstationserver.server.HttpServerClass;
 
 public class Main {
 
-	/**
-	 * Set port to listen for server on:
-	 */
-	private static int port = 8080;
-	private static Server srv;
+	static int port = 8080;
 
 	public static void main(String[] args) {
 		startServer();
 	}
 
-	/**
-	 * Attempts to start server
-	 * prints a successful or unsuccessful attempt
-	 */
 	private static void startServer() {
-		srv = new Server();
+		HttpServerClass srv = new HttpServerClass();
 		boolean blResult = srv.open(port);
+
 		if (blResult) {
 			System.out.println("server started on " + port);
 		} else {

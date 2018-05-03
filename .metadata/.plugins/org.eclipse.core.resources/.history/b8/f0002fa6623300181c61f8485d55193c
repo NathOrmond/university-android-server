@@ -1,0 +1,24 @@
+
+
+import com.example.nathan.trainstationserver.server.HttpServerClass;
+
+public class Main {
+
+	static int port = 8080;
+
+	public static void main(String[] args) {
+		startServer();
+	}
+
+	private static void startServer() {
+		HttpServerClass srv = new HttpServerClass();
+		boolean blResult = srv.open(port);
+
+		if (blResult) {
+			System.out.println("server started on " + port);
+		} else {
+			System.out.println("server start error");
+		}
+	}
+
+}

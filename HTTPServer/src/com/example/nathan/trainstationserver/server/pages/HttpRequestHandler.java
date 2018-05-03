@@ -9,19 +9,39 @@ import com.sun.net.httpserver.HttpHandler;
 
 public class HttpRequestHandler implements HttpHandler {
 
+	/**
+	 * handles logic for "url/"
+	 */
 	@Override
 	public void handle(HttpExchange he) throws IOException {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(he.getResponseBody()));
 		he.sendResponseHeaders(200, 0);
-		String output = "<!DOCTYPE html><html><head><title>Fake HTML page</title></head><body><p>This is a web page</p><form method=\"GET\" action=\"/action\">"
-				+ "<label for=\"name\">Name</label>"
-				+ "<input type=\"text\" name=\"name\" id=\"name\">"
-				+ "<label for=\"col\">Favourite Colour</label>"
-				+ "<input type=\"submit\" value=\"button\">"
-				+ "<input type=\"text\" name=\"colour\" id=\"col\"></form></body></html>";
-		bw.write(output);
+		bw.write(output());
 		bw.close();
 
+	}
+	
+	/**
+	 * HTML for producing a web form with two inputs: latitude and longitude
+	 * @return string
+	 */
+	private String output() { 
+		return    "<!DOCTYPE html><html><head>"
+				+ "<title>Lat & Lng Input</title></head>"
+				+ "<body>"
+				+ "<p> A location must be entered in the URL in the format /stations?lat=&lng= "
+				+ " <br/> alternatively search below: </p>"
+				
+				+ "<form method=\"GET\" action=\"/stations\">"
+				+ "<label for=\"latLabel\">latitude</label>"
+				+ "<input type=\"text\" name=\"lat\" id=\"lat\">"
+				+ "<label for=\"lngLabel\">longitude</label>"
+				+ "<input type=\"text\" name=\"lng\" id=\"lng\">"
+				+ "<input type=\"submit\" value=\"search\">"
+				+ "</form>"
+				
+				+ "</body>"
+				+ "</html>";
 	}
 
 }
