@@ -1,0 +1,23 @@
+package com.example.nathan.trainstationserver;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+
+import com.sun.net.httpserver.*;
+
+public class HttpServerClass {
+	
+	private HttpServer server = null;
+	
+	
+	public boolean open(int iPort) { 
+		boolean result = false; 
+		
+		this.server = 
+		
+		return result;	
+	}
+
+	
+	
+}

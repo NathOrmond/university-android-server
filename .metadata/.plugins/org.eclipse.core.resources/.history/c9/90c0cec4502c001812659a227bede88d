@@ -1,0 +1,23 @@
+package com.example.nathan.trainstationserver;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.HashMap;
+
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+
+public class HttpFormMethod implements HttpHandler {
+
+	@Override
+	public void handle(HttpExchange he) throws IOException {
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(he.getResponseBody()));
+		he.sendResponseHeaders(200, 0);
+		String output = "<!DOCTYPE html><html><head><title>Fake HTML page</title></head><body><p>This is a web page Message for"+" in your favourite colour</p></body></html>";
+		bw.write(output);
+		bw.close();
+		
+	}
+
+}

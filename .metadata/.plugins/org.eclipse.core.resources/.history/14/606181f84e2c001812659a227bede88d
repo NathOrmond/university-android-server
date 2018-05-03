@@ -1,0 +1,17 @@
+package com.example.nathan.trainstationserver;
+
+import java.io.IOException;
+import java.util.HashMap;
+
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+
+public class HttpFormMethod implements HttpHandler {
+
+	@Override
+	public void handle(HttpExchange he) throws IOException {
+		HashMap<String,String> params = new HashMap<String,String>();
+		
+	}
+
+}

@@ -1,0 +1,22 @@
+package com.example.nathan.trainstationserver;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+
+public class HttpRequestHandler implements HttpHandler {
+
+	@Override
+	public void handle(HttpExchange he) throws IOException {
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(he.getResponseBody()));
+		he.sendResponseHeaders(200, 0);
+		String output = "<html><head></head><body><h1>server</h1></body></html>;";
+		bw.write(output);
+		bw.close();
+
+	}
+
+}

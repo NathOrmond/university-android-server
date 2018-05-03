@@ -1,0 +1,41 @@
+package com.example.nathan.trainstationserver;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.net.InetSocketAddress;
+
+import com.sun.net.httpserver.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		mainRun();
+}
+	
+	private static void mainRun() { 
+		try {
+			HttpServer server = HttpServer.create(new InetSocketAddress(80),0);
+		
+			server.createContext("/",new HttpHandler() {
+
+				@Override
+				public void handle(HttpExchange he) throws IOException {
+					BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(he.getResponseBody()));
+					System.out.println("Processing Request");
+					
+					he.sendResponseHeaders(200, 0);
+					String output = "<html><head></head><body><h1>I'm a working we server</h1></body></html>";
+					bw.write(output);
+					bw.close();
+				}
+				
+			});
+		server.start(); 
+		System.out.println("Starting...");
+		} catch (IOException e) {
+		System.err.println("Problem starting webserver "+ e);
+			e.printStackTrace();
+		}
+	}
+}

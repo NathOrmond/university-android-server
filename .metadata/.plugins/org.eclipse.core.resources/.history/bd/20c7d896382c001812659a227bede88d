@@ -1,0 +1,26 @@
+package com.example.nathan.trainstationserver;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.net.InetSocketAddress;
+
+import com.sun.net.httpserver.*;
+
+public class Main {
+
+	static Runtime runtime;
+	
+	
+	public static void main(String[] args) {
+		runtime = java.lang.Runtime.getRuntime();
+		startServer();
+}
+	
+	private static void startServer() { 
+			
+}
+	
+
+	
+}
