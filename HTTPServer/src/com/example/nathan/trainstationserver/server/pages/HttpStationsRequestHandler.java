@@ -12,7 +12,7 @@ import com.example.nathan.trainstationserver.db.DatabaseInteractions;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
-public class HttpStationsRequestHandler implements HttpHandler {
+public class HttpStationsRequestHandler extends AbstractHttpRequestHandler {
 
 	private String latitude, longitude;
 

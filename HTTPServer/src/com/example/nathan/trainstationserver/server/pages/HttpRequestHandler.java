@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
-public class HttpRequestHandler implements HttpHandler {
+public class HttpRequestHandler extends AbstractHttpRequestHandler {
 
 	/**
 	 * handles logic for "url/"
